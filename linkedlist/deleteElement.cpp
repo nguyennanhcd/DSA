@@ -64,6 +64,33 @@ node *deleteElement(node *l, int index, int &n)
     return l;
 }
 
+node *deleteNode(node *l, int value, int n)
+{
+    if (l == NULL)
+    {
+        return NULL;
+    }
+
+    if (l->value == value)
+    {
+        node *temp = l;
+        l = l->next;
+        delete temp;
+        return l;
+    }
+
+    node *tmp = l;
+
+    while (tmp->next != NULL && tmp->next->value != value)
+    {
+        tmp = tmp->next;
+    }
+    tmp->next = tmp->next->next;
+    tmp->next = NULL;
+    n--;
+    return l;
+}
+
 int main()
 {
     int n;
@@ -79,7 +106,7 @@ int main()
     }
     int index;
     cin >> index;
-    l = deleteElement(l, index, n);
+    l = deleteNode(l, index, n);
     printList(l);
     return 0;
 }
