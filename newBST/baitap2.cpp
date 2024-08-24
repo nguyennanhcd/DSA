@@ -53,15 +53,15 @@ void printNode(Tree t)
 
 void findReplacementNode(Tree &t, Tree &p)
 {
-    if (p->right != nullptr)
+    if (p->left != nullptr)
     {
-        findReplacementNode(t, p->right);
+        findReplacementNode(t, p->left);
     }
     else
     {
         t->value = p->value;
         t = p;
-        p = p->left;
+        p = p->right;
     }
 }
 

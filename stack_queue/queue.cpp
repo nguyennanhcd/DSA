@@ -29,11 +29,11 @@ int push(int x, int &size, Node **front, Node **rear)
     temp->next = NULL;
 
     if (*rear == NULL)
-    { // Trường hợp là phần tử đầu tiên
+    {
         *front = *rear = temp;
     }
     else
-    { // Trường hợp không là phần tử đầu tiên
+    {
         (*rear)->next = temp;
         *rear = temp;
     }

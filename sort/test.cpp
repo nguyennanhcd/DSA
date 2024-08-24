@@ -45,21 +45,101 @@ using namespace std;
 //         arr[pos + 1] = tmp;
 //     }
 // }
-void merge(int arr[], int l, int mid, int r)
+// void merge(int arr[], int l, int mid, int r)
+// {
+//     int n1 = mid - l + 1;
+//     int n2 = r - mid;
+//     int L[n1], R[n2];
+//     for (int i = 0; i < n1; i++)
+//     {
+//         L[i] = arr[l + i];
+//     }
+//     for (int i = 0; i < n2; i++)
+//     {
+//         R[i] = arr[mid + 1 + i];
+//     }
+
+//     int i, j, k;
+//     i = 0;
+//     j = 0;
+//     k = l;
+
+//     while (i < n1 && j < n2)
+//     {
+//         if (L[i] < R[j])
+//         {
+//             arr[k] = L[i];
+//             i++;
+//             k++;
+//         }
+//         else
+//         {
+//             arr[k] = R[j];
+//             j++;
+//             k++;
+//         }
+//     }
+
+//     while (i < n1)
+//     {
+//         arr[k] = L[i];
+//         i++;
+//         k++;
+//     }
+
+//     while (j < n2)
+//     {
+//         arr[k] = R[j];
+//         j++;
+//         k++;
+//     }
+// }
+
+// void mergeSort(int arr[], int l, int r)
+// {
+//     if (l >= r)
+//         return;
+//     int mid = (l + r) / 2;
+//     mergeSort(arr, l, mid);
+//     mergeSort(arr, mid + 1, r);
+//     merge(arr, l, mid, r);
+// }
+
+int partition(int *arr, int l, int r)
 {
+    int pivot = arr[(l + r) / 2];
+    int i = l;
+    int j = r;
+    while (i <= j)
+    {
+        while (arr[i] < pivot)
+        {
+            i++;
+        }
+        while (arr[j] > pivot)
+        {
+            j--;
+        }
+        if (i <= j)
+        {
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    }
+    return i;
 }
 
-void mergeSort(int arr[], int l, int r)
+void quickSort(int *arr, int l, int r)
 {
-    if (l > r)
-        return;
-    int mid = (l + r) / 2;
-    mergeSort(arr, l, mid);
-    mergeSort(arr, mid + 1, r);
-    merge(arr, l, mid, r);
+    if (l < r)
+    {
+        int i = partition(arr, l, r);
+        quickSort(arr, l, i - 1);
+        quickSort(arr, i, r);
+    }
 }
 
-// Hàm hiển thị mảng
 void displayArray(int arr[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -81,7 +161,7 @@ int main()
     // bubbleSort(arr, n);
     // selectionSort(arr, n);
     // insertionSort(arr, n);
-    mergeSort(arr, 0, n - 1);
+    // mergeSort(arr, 0, n - 1);
 
     cout << "Mang sau khi sap xep: ";
     displayArray(arr, n);
