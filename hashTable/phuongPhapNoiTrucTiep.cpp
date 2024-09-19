@@ -9,6 +9,16 @@ struct Node
 Node *heads[M];
 Node *z;
 
+void init()
+{
+    z = new Node;
+    z->next = z;
+    for (int i = 0; i < M; i++)
+    {
+        heads[i] = z;
+    }
+}
+
 Node *insert(int k)
 {
     Node *t = heads[k % M];
@@ -48,16 +58,6 @@ Node *search(int k)
         return z;
     }
     return t;
-}
-
-void init()
-{
-    z = new Node;
-    z->next = z;
-    for (int i = 0; i < M; i++)
-    {
-        heads[i] = z;
-    }
 }
 
 int main()
