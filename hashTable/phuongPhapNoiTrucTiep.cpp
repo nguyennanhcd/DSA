@@ -18,7 +18,6 @@ void init()
     for (int i = 0; i < M; i++)
     {
         heads[i] = z;
-        cout << heads[i] << endl;
     }
 }
 
@@ -27,7 +26,7 @@ void insert(int k)
     Node *t = heads[k % M];
     Node *x = new Node;
     x->key = k;
-    z->key = k;
+    // z->key = k;
     if (t->key >= k)
     {
         x->next = t;
