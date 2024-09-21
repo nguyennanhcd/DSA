@@ -108,6 +108,52 @@ int search2(HashTable t, int x)
     return -1;
 }
 
+void removeItem(HashTable &t, int x)
+{
+    int idx = hashFunction(x);
+    int prev = -1; // To track the previous index
+
+    // If the item is in the head bucket
+    if (t.h[idx].value == x)
+    {
+        if (t.h[idx].next == -1) // No chaining, simply remove
+        {
+            t.h[idx].value = -1;
+        }
+        else // There is chaining, promote the next node
+        {
+            int nextIdx = t.h[idx].next;
+            t.h[idx].value = t.h[nextIdx].value;
+            t.h[idx].next = t.h[nextIdx].next;
+            t.h[nextIdx].value = -1; // Remove the node from the table
+            t.h[nextIdx].next = -1;
+        }
+        cout << x << " removed from the table.\n";
+        return;
+    }
+
+    // Traverse the chain to find the item
+    while (t.h[idx].next != -1)
+    {
+        prev = idx;
+        idx = t.h[idx].next;
+
+        if (t.h[idx].value == x)
+        {
+            t.h[prev].next = t.h[idx].next; // Unlink the current item
+            t.h[idx].value = -1;
+            t.h[idx].next = -1;
+            cout << x << " removed from the table.\n";
+            return;
+        }
+    }
+
+    cout << x << " not found in the table.\n";
+}
+
+int count(HashTable t, int x)
+{
+}
 int main()
 {
     HashTable t;
