@@ -151,9 +151,6 @@ void removeItem(HashTable &t, int x)
     cout << x << " not found in the table.\n";
 }
 
-int count(HashTable t, int x)
-{
-}
 int main()
 {
     HashTable t;
@@ -166,8 +163,8 @@ int main()
         cout << "1. Insert\n";
         cout << "2. Display\n";
         cout << "3. Search\n";
-        // cout << "4. Remove\n";
-        // cout << "5. Exit\n";
+        cout << "4. Remove\n";
+        cout << "5. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -187,15 +184,15 @@ int main()
             cin >> value;
             search(t, value);
         }
-            // case 4:
-            // {
-            //     cout << "Enter value to remove: ";
-            //     cin >> value;
-            //     remove(heads, value);
-            //     break;
-            // }
-
         case 4:
+        {
+            cout << "Enter value to remove: ";
+            cin >> value;
+            removeItem(t, value);
+            break;
+        }
+
+        case 5:
             cout << "Exiting...\n";
             break;
         default:

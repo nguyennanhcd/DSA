@@ -9,43 +9,42 @@ void init(int a[], int &front, int &rear)
 }
 
 // phương pháp tịnh tiến
-// int Push(int a[], int &front, int &rear, int &size, int x)
-// {
-//     if (size == MAX) // Queue đầy
-//         return 0;
-//     if (front == -1) // Queue rỗng
-//         front = 0;
-//     if (rear == MAX - 1) // Tràn Queue
-//     {
-//         for (int i = front; i <= rear; i++)
-//             a[i - front] = a[i];
-//         rear = MAX - 1 - front;
-//         front = 0;
-//     }
-//     a
-//         [++rear] = x; // thêm phần tử mới và tăng rear và size lên
-//     size++;
-//     return 1;
-// }
+int PushT(int a[], int &front, int &rear, int &size, int x)
+{
+    if (size == MAX) // Queue đầy
+        return 0;
+    if (front == -1) // Queue rỗng
+        front = 0;
+    if (rear == MAX - 1) // Tràn Queue
+    {
+        for (int i = front; i <= rear; i++)
+            a[i - front] = a[i];
+        rear = MAX - 1 - front;
+        front = 0;
+    }
+    a[++rear] = x; // thêm phần tử mới và tăng rear và size lên
+    size++;
+    return 1;
+}
 
-// int Pop(int a[], int &front, int &rear, int &x)
-// {
-//     if (front == -1) // Queue rỗng
-//         return 0;
-//     else
-//     {
-//         x = a[front++];
-//         if (front > rear) // trường hợp Queue có 1 phần tử
-//         {
-//             front = -1;
-//             rear = -1;
-//             // Queue hiện đang trống
-//         }
-//         return 1;
-//     }
-// }
+int PopT(int a[], int &front, int &rear, int &x)
+{
+    if (front == -1) // Queue rỗng
+        return 0;
+    else
+    {
+        x = a[front++];
+        if (front > rear) // trường hợp Queue có 1 phần tử
+        {
+            front = -1;
+            rear = -1;
+            // Queue hiện đang trống
+        }
+        return 1;
+    }
+}
 
-// phương pháp vòng
+// phuong phap vong
 
 int Push(int a[], int &front, int &rear, int x)
 {
@@ -55,9 +54,9 @@ int Push(int a[], int &front, int &rear, int x)
     {
         if (front == -1) // Queue rỗng
             front = 0;
-        if (rear == MAX - 1) // tràn Queue
-            rear = -1;       // hàng đợi tràn, chuyển giá trị của rear trở về -1
-        a[++rear] = x;       // tăng giá trị của rear lên 1 và thêm phần tử mới vào vị trí của rear
+        if (rear == MAX - 1)
+            rear = -1;
+        a[++rear] = x;
         return 1;
     }
 }

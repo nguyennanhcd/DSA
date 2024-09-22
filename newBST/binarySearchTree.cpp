@@ -265,7 +265,6 @@ void deleteNode(Tree &t, int x)
         }
         else // node cần xóa là node có 2 con
         {
-            // Tìm node trái nhất của cây con bên phải
             findReplacementNode(temp, t->left);
         }
         delete temp;

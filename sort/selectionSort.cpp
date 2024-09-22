@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// tìm phần tử nhỏ hơn phần tử hiện tại
 void selectionSort(int arr[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -17,7 +18,6 @@ void selectionSort(int arr[], int n)
     }
 }
 
-// Hàm hiển thị mảng
 void displayArray(int arr[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -27,7 +27,6 @@ void displayArray(int arr[], int n)
     cout << endl;
 }
 
-// Hàm chính
 int main()
 {
     int arr[] = {64, 34, 25, 12, 22, 11, 90};

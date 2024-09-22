@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// insertionSort là thuật toán tìm vị trí thích hợp của phần tử hiện tại trong mảng
 void insertionSort(int arr[], int n)
 {
     // so sánh với mọi phần tử bên trái của nó, nếu lớn hơn thì đẩy về bên phải
