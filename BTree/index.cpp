@@ -17,37 +17,21 @@ struct BTree
 };
 
 BTreeNode *createNode(int t, bool leaf);
-
 void initBTree(BTree *tree, int t);
-
 int findKey(BTreeNode *node, int k);
-
 void removeFromLeaf(BTreeNode *node, int idx);
-
 int getPredecessor(BTreeNode *node, int idx);
-
 int getSuccessor(BTreeNode *node, int idx);
-
 void borrowFromPrev(BTreeNode *node, int idx);
-
 void borrowFromNext(BTreeNode *node, int idx);
-
 void merge(BTreeNode *node, int idx);
-
 void fill(BTreeNode *node, int idx);
-
 void deletion(BTreeNode *node, int k);
-
 void removeFromNonLeaf(BTreeNode *node, int idx);
-
 void insertNonFull(BTreeNode *node, int k);
-
 void splitChild(BTreeNode *node, int i, BTreeNode *y);
-
 void insertion(BTree *tree, int k);
-
 void traverse(BTreeNode *node);
-
 void deleteFromTree(BTree *tree, int k);
 
 int main()

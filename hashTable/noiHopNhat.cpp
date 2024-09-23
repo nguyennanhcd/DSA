@@ -32,6 +32,7 @@ int hashFunction(int x)
 
 void insertHashItem(HashTable &t, int x)
 {
+    // check if there is an empty space in the hash table
     if (t.r >= 0)
     {
         int idx = hashFunction(x);
@@ -42,14 +43,15 @@ void insertHashItem(HashTable &t, int x)
         else
         {
             t.h[t.r].value = x;
-
             // neu next cua vi tri hien tai dang la - 1 thi se cho idx = vi tri cua noi xay ra dung do
             while (t.h[idx].next != -1)
             {
                 idx = t.h[idx].next;
             }
+            // assign next to the position of r
             t.h[idx].next = t.r;
         }
+        // find a new proper space for r
         while (t.r >= 0 && t.h[t.r].value >= 0)
         {
             t.r--;
@@ -61,7 +63,6 @@ void display(HashTable t)
 {
     for (int i = 0; i < M; i++)
     {
-
         cout << "Bucket " << i << ":" << "\t" << t.h[i].value << " : " << t.h[i].next << endl;
     }
 }
