@@ -8,13 +8,13 @@ void insertionSort(int arr[], int n)
     for (int i = 1; i < n; i++)
     {
         int temp = arr[i];
-        int pos = i - 1;
-        while (pos >= 0 && arr[pos] > temp)
+        int pos = i -1;
+        while(pos >= 0 && arr[pos] > temp)
         {
             arr[pos + 1] = arr[pos];
-            pos--;
+            pos --;
         }
-        arr[pos + 1] = temp;
+        arr[pos+1] = temp;
     }
 }
 
