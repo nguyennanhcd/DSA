@@ -65,12 +65,13 @@ void merge(int arr[], int l, int mid, int r)
 void mergeSort(int *arr, int l, int r)
 {
     // when the sub array has only 1 element, the code will don't run anymore
-    if (l >= r)
-        return;
-    int mid = (l + r) / 2;
-    mergeSort(arr, l, mid);
-    mergeSort(arr, mid + 1, r);
-    merge(arr, l, mid, r);
+    if (l < r)
+    {
+        int mid = (l + r) / 2;
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid + 1, r);
+        merge(arr, l, mid, r);
+    }
 }
 
 int main()

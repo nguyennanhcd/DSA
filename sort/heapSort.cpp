@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// Hàm hoán đổi hai phần tử
 void swap(int &a, int &b)
 {
     int temp = a;
@@ -40,7 +39,6 @@ void heapSort(int arr[], int n)
     }
 }
 
-// Hàm hiển thị mảng
 void displayArray(int arr[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -50,11 +48,19 @@ void displayArray(int arr[], int n)
     cout << endl;
 }
 
-// Hàm chính
 int main()
 {
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n;
+    cout << "Nhap so luong phan tu cua mang: ";
+    cin >> n;
+
+    int *arr = new int[n];
+
+    cout << "Nhap " << n << " phan tu: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
 
     cout << "Mang truoc khi sap xep: ";
     displayArray(arr, n);
@@ -64,5 +70,6 @@ int main()
     cout << "Mang sau khi sap xep: ";
     displayArray(arr, n);
 
+    delete[] arr;
     return 0;
 }
