@@ -10,7 +10,6 @@ void interchangeSort(int arr[], int n)
         {
             if (arr[i] > arr[j])
             {
-                // Hoán đổi arr[i] và arr[j]
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
